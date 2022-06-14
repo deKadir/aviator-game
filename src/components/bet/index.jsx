@@ -8,7 +8,7 @@ export default function Bet() {
   const { socket, countdown, player } = useContext(SocketContext);
 
   const handleAction = () => {
-    if (parseInt(bet) === NaN) {
+    if (isNaN(bet)) {
       setBet(0);
       return;
     }
@@ -33,13 +33,13 @@ export default function Bet() {
       setBet(parseInt(bet || 0) + 100);
     }
     if (e.target.innerText === '1/2') {
-      setBet((player.balance / 2).toFixed(0));
+      setBet(player.balance / 2);
     }
     if (e.target.innerText === '2x') {
       setBet(bet * 2 <= player.balance ? bet * 2 : player.balance);
     }
     if (e.target.innerText === 'Max') {
-      setBet(player.balance.toFixed(0));
+      setBet(player.balance);
     }
   };
   useEffect(() => {
