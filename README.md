@@ -1,10 +1,7 @@
-# Getting Started with Create React App
+#Nasıl oynanır?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Geri sayım sayacı 10 dan geriye sayar bahis miktarınızı girip bahis yaparsınız. Daha sonra katsayı random belirlenmiş bir sayıya kadar artmaya başlar bu random sayıya ulaşmadan bahsinizi çekerseniz(withdraw butonu) bahsiniz katsayı ile çarpılır(örnek: 100 bahis yaptınız 5.0x de çektiniz 100*5=500 kazandınız) ve hesabınıza eklenir. Siz paranızı çekmeden random sayıya ulaşılırsa bahsi kaybetmiş olursunuz.
 
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
