@@ -1,0 +1,23 @@
+@import 'assets/styles/variables.scss';
+.container {
+  color: $color-light;
+  margin-bottom: 1rem;
+}
+.title {
+  margin-bottom: 1rem;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  &_row {
+    width: 100%;
+    font-weight: bold;
+  }
+  td {
+    padding-top: 1rem;
+  }
+  &_avatar img {
+    width: 2rem;
+    aspect-ratio: 1;
+  }
+}

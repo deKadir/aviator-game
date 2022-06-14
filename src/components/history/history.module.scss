@@ -1,0 +1,16 @@
+@import 'assets/styles/variables.scss';
+.container {
+  margin-block: 1rem;
+  width: 100%;
+}
+.results {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.result {
+  background-color: $color-smooth-dark;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: $color-light;
+}

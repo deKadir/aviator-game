@@ -1,0 +1,43 @@
+@import 'assets/styles/variables.scss';
+.container {
+  width: 100%;
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+}
+.options {
+  width: 100%;
+}
+.action_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  width: 50%;
+  font-size: 1.5rem;
+  background-color: $color-secondary;
+  color: $color-light;
+}
+.buttons {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+.bet {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: $color-smooth-dark;
+  color: $color-light;
+  border: none;
+  font-size: 1.5rem;
+}
+.btn_action {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: $color-smooth-dark;
+  color: $color-light;
+  font-size: 1.5rem;
+  border: none;
+}
