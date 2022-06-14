@@ -1,11 +1,11 @@
 import Card from 'components/global/card';
 import { SocketContext } from 'context/SocketContext';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from './bet.module.scss';
 export default function Bet() {
   const [bet, setBet] = useState(0);
   const [action, setAction] = useState('bet');
-  const { socket, countdown } = useContext(SocketContext);
+  const { socket, countdown, player } = useContext(SocketContext);
 
   const handleAction = () => {
     if (action === 'withdraw') {
@@ -21,8 +21,37 @@ export default function Bet() {
       });
       setAction('withdraw');
     }
+    setBet(0);
   };
-
+  const handleBet = (e) => {
+    if (e.target.innerText === '+100') {
+      setBet(parseInt(bet || 0) + 100);
+    }
+    if (e.target.innerText === '1/2') {
+      setBet((player.balance / 2).toFixed(0));
+    }
+    if (e.target.innerText === '2x') {
+      setBet(bet * 2 <= player.balance ? bet * 2 : player.balance);
+    }
+    if (e.target.innerText === 'Max') {
+      setBet(player.balance.toFixed(0));
+    }
+  };
+  useEffect(() => {
+    if (action === 'withdraw' && countdown === 9) {
+      setAction('bet');
+    }
+  }, [countdown, action]);
+  const isDisabled = () => {
+    return (
+      (!!countdown && action === 'withdraw') ||
+      (!!!countdown && action === 'bet') ||
+      bet > player.balance ||
+      (player.balance <= 0 && action === 'bet') ||
+      (bet === 0 && action === 'bet')
+    );
+  };
+  useEffect(() => {}, [countdown]);
   return (
     <Card className={style.container}>
       <div className={style.options}>
@@ -34,20 +63,25 @@ export default function Bet() {
             className={style.input}
           />
           <div className={style.buttons}>
-            <button className={style.bet}>1$</button>
-            <button className={style.bet}>2$</button>
-            <button className={style.bet}>5$</button>
-            <button className={style.bet}>10$</button>
+            <button className={style.bet} onClick={handleBet}>
+              +100
+            </button>
+            <button className={style.bet} onClick={handleBet}>
+              1/2
+            </button>
+            <button className={style.bet} onClick={handleBet}>
+              2x
+            </button>
+            <button className={style.bet} onClick={handleBet}>
+              Max
+            </button>
           </div>
         </div>
       </div>
       <button
         className={style.btn_action}
         onClick={handleAction}
-        disabled={
-          (!!countdown && action === 'withdraw') ||
-          (!!!countdown && action === 'bet')
-        }
+        disabled={isDisabled()}
       >
         {action}
       </button>
