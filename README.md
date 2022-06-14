@@ -1,6 +1,7 @@
 #Nasıl oynanır?
 
 Geri sayım sayacı 10 dan geriye sayar bahis miktarınızı girip bahis yaparsınız. Daha sonra katsayı random belirlenmiş bir sayıya kadar artmaya başlar bu random sayıya ulaşmadan bahsinizi çekerseniz(withdraw butonu) bahsiniz katsayı ile çarpılır(örnek: 100 bahis yaptınız 5.0x de çektiniz 100*5=500 kazandınız) ve hesabınıza eklenir. Siz paranızı çekmeden random sayıya ulaşılırsa bahsi kaybetmiş olursunuz.
+Daha iyi oyun performansı için backendi(https://github.com/deKadir/aviator-game-backend) localinizde çalıştırınız.
 
 
 ### `npm start`
