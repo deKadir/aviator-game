@@ -8,7 +8,7 @@ export default function Bet() {
   const { socket, countdown, player } = useContext(SocketContext);
 
   const handleAction = () => {
-    if (parseFloat(bet) === NaN) {
+    if (parseInt(bet) === NaN) {
       setBet(0);
       return;
     }
