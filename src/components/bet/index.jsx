@@ -8,6 +8,11 @@ export default function Bet() {
   const { socket, countdown, player } = useContext(SocketContext);
 
   const handleAction = () => {
+    if (parseFloat(bet) === NaN) {
+      setBet(0);
+      return;
+    }
+
     if (action === 'withdraw') {
       socket.emit('withdraw', {
         socketId: socket?.id,
